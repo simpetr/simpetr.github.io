@@ -1,0 +1,72 @@
+baseURL = "https://benpm.github.io/"
+languageCode = "en-us"
+title = "benpm.github.io"
+theme = "hugo-theme-codex"
+
+googleAnalytics = "G-PPST2B8G8Z"
+
+[params]
+    twitter = "https://twitter.com/_bpmw"
+    github = "https://github.com/benpm"
+    youtube = "https://www.youtube.com/c/BenjaminMastripolito"
+    soundcloud = "https://soundcloud.com/trope"
+    itchio = "https://ben-m.itch.io/"
+    ko-fi = "https://ko-fi.com/benpm"
+    iconTitles = ["youtube", "soundcloud", "itchio", "ko-fi"]
+
+[markup]
+    [markup.highlight]
+        style = "manni"
+
+[markup.goldmark.renderer]
+    unsafe = true
+
+[[menu.main]]
+    weight = 1
+    identifier = "splash"
+    name = "splash!"
+    title = "splash"
+    url = "/"
+
+[[menu.main]]
+    weight = 2
+    identifier = "blog"
+    name = "blog"
+    title = "blog"
+    url = "/blog"
+
+[[menu.main]]
+    weight = 2
+    identifier = "experiments"
+    name = "experiments"
+    title = "experiments"
+    url = "/experiments"
+
+[[menu.main]]
+    weight = 2
+    identifier = "projects"
+    name = "projects"
+    title = "projects"
+    url = "/projects"
+
+
+[[menu.main]]
+    weight = 2
+    identifier = "music"
+    name = "music"
+    title = "music"
+    url = "/music"
+
+[[menu.main]]
+    weight = 2
+    identifier = "gamedev"
+    name = "gamedev"
+    title = "gamedev"
+    url = "/gamedev"
+
+[[menu.main]]
+    weight = 3
+    identifier = "cv"
+    name = "cv (download)"
+    title = "cv"
+    url = "https://github.com/benpm/cv/raw/master/benpm_cv.pdf"

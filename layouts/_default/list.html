@@ -1,0 +1,49 @@
+{{ define "styles" }}
+    {{ $.Scratch.Set "style_opts" (dict "src" "scss/pages/posts.scss" "dest" "css/posts.css") }}
+{{ end }}
+
+{{ define "main" }}
+    
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2 2006" }}    
+
+<header class="list__header">
+  <h1 id="list__title">{{ .Title }}</h1>
+</header>
+<div class="list__desc">
+  {{ partial "anchored-headings.html" .Content }}
+</div>
+<div class="post-list__container">
+  <ul class="post-list">
+    {{ range .Pages }}
+    <li class="post">
+      <div class="post__header">
+        <div class="post-date__container">
+          <time class="post-date" datetime="{{ .Date }}">{{ .Date.Format $dateFormat }}</time>
+        </div>
+        <h2 class="post__title">
+          {{ if .Params.Outlink }}
+            <a href="{{.Params.Outlink}}" target="_blank">{{ .Title }}</a>
+          {{ else }}
+            <a href="{{.RelPermalink}}">{{ .Title }}</a>
+          {{ end }}
+          {{ if .Params.Category }}
+            <span class="post__category">
+              ({{.Params.Category}})
+            </span>
+          {{ end }}
+        </h2>
+        {{ partial "tags.html" .}}
+      </div>
+      <div class="post__desc">
+        <p>{{ .Params.Description }}
+        </p>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+  {{ if (eq .Section "blog") }}
+  {{ partial "browse-by-tag.html" .}}
+  {{ end }}
+</div>
+
+{{ end }}

@@ -1,0 +1,143 @@
+@import "partials/vars";
+@import "theme-toggle";
+
+// Profile picture
+img.profile-pic {
+  width: 100px;
+  float: left;
+  margin-right: 1em;
+  border-radius: 4px;
+}
+
+// Latest blog post displayed on index page
+.latest-post { @include themed {
+  font-size: 12px;
+  border-radius: 4px;
+  margin-top: 4em;
+
+  @media screen and (min-width: $medium) {
+    width: 60%;
+  }
+  
+  .post__header {
+    background-color: t('col-primary-bg');
+    padding: 16px;
+    border-radius: 4px;
+  }
+  
+  >p {
+    font-weight: bold;
+    font-size: 18px;
+    color: t('col-primary-bg');
+  }
+  
+  h2 {
+    margin-top: 0.5em;
+  }
+  
+  a {
+    text-decoration: none;
+    color: t('col-fg');
+  }
+}}
+
+// Codepen embed
+.cp_embed_wrapper {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+// Active nav link
+.nav__list li>.indicator { @include themed {
+  background-color: t('col-mbg');
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  margin: -14px calc(100% + 6px);
+  
+  &.active {
+    background-color: t('col-fg');
+  }
+  
+  @media screen and (max-width: $medium) {
+    margin-top: -1.2em;
+    width: 9px;
+    height: 9px;
+  }
+}}
+
+
+
+// External content
+iframe {
+  display: block;
+  margin: auto;
+  padding-top: 1em;
+}
+
+// Category on page links
+.post__category { @include themed {
+  color: t('col-mg');
+  font-size: 0.8rem;
+}}
+
+// Post
+.post {
+  max-width: $fullwidth;
+}
+
+// Post list container
+.post-list__container {
+  max-width: $fullwidth;
+}
+
+.post__footer { @include themed() {
+  background-color: t('col-bg');
+}}
+
+// List description
+.list__desc {
+  max-width: $fullwidth;
+}
+
+// Headers for list pages
+.list__header {
+  margin: 0 auto 1em;
+  max-width: $fullwidth;
+  width: 100%;
+  
+  @media screen and (min-width: $medium) {
+    padding-left: 50px;
+  }
+}
+
+// Invert icons
+.theme--dark {
+  .social-icons__icon, .profile-pic, .invertable {
+    filter: invert(1);
+  }
+}
+
+// Workaround... can't seem to get this working with the mixin
+body.theme--default {
+  background-color: map-get(map-get($themes, 'default'), 'col-bg');
+  color: map-get(map-get($themes, 'default'), 'col-fg');
+}
+body.theme--dark {
+  background-color: map-get(map-get($themes, 'dark'), 'col-bg');
+  color: map-get(map-get($themes, 'dark'), 'col-fg');
+}
+
+// Splash text typing effect caret
+#splash-text::after {
+  width: 3px;
+  height: 100%;
+  background-color: black;
+}
+
+// Shave off some head room
+main {
+  @media screen and (max-width: $medium) {
+    padding-top: 6rem;
+  }
+}
