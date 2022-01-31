@@ -1,6 +1,6 @@
-baseURL = "https://benpm.github.io/"
+baseURL = "https://simpetr.github.io/"
 languageCode = "en-us"
-title = "benpm.github.io"
+title = "simpetr.github.io"
 theme = "hugo-theme-codex"
 
 googleAnalytics = "G-PPST2B8G8Z"
